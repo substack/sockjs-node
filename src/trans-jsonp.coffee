@@ -28,6 +28,7 @@ exports.app =
 
         session = transport.Session.bySessionIdOrNew(req.session, @)
         session.register( new JsonpReceiver(res, @options, callback) )
+        session.request = req
         return true
 
     jsonp_send: (req, res, query) ->

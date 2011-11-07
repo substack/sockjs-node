@@ -32,6 +32,7 @@ class WebHandshake8
         # websockets possess no session_id
         session = transport.Session.bySessionIdOrNew(undefined, @server)
         session.register( new WebSocket8Receiver(@connection) )
+        session.request = @req
 
 
 class WebSocket8Receiver extends transport.ConnectionReceiver

@@ -45,4 +45,5 @@ exports.app =
 
         session = transport.Session.bySessionIdOrNew(req.session, @)
         session.register( new HtmlFileReceiver(res, @options) )
+        session.request = req
         return true

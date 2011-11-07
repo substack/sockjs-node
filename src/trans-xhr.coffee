@@ -65,6 +65,7 @@ exports.app =
 
         session = transport.Session.bySessionIdOrNew(req.session, @)
         session.register( new XhrPollingReceiver(res, @options) )
+        session.request = req
         return true
 
     xhr_streaming: (req, res, _, next_filter) ->
@@ -77,4 +78,5 @@ exports.app =
 
         session = transport.Session.bySessionIdOrNew(req.session, @)
         session.register( new XhrStreamingReceiver(res, @options) )
+        session.request = req
         return true
